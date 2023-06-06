@@ -1,0 +1,160 @@
+body{font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+
+header{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(216, 216, 215);
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+h1{
+    color:#A4A4A4;
+}
+
+h3{
+    color: rgb(90, 90, 90);
+    margin-top: 50px;
+}
+
+p {
+    padding: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: darkred;
+}
+
+fieldset{
+    border: solid;
+    border-color: rgb(216, 216, 215);
+    border-width: 2px;
+    border-radius: 4px;
+}
+
+footer{
+    background-color: rgb(216, 216, 215);
+    padding: 5px;
+}
+
+form{
+    margin: 10px;
+}
+
+input{
+    margin: 5px;
+}
+
+label{
+    display: inline-block;
+    width: 50%;
+    max-width: 300px;
+    min-width: 160 px;
+}
+
+legend{
+    border-radius: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+main{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+section{
+    margin: 15px;
+    padding: 10px;
+    padding-bottom: 15px;
+    box-shadow: 6px 6px 15px rgba(216, 216, 216, 0.8);
+    border-radius: 6px;
+
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.chart{
+    display: inline-block;
+    margin: auto;
+}
+.container{
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+}
+.containerH{
+    display: flex;
+    flex-wrap: wrap;
+}
+.containerV{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.element{
+
+    margin: auto;
+}
+
+@media screen and (max-width: 500px){
+    img{
+        display: none;
+    }
+    main{margin-left: 5x;
+    margin-right: 5px;}
+}
+
+.logo_accueil{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(216, 216, 215);
+    justify-content: center;
+
+}
+
+.nom{
+    border-width: 0px;
+    font-size: large;
+    padding: 0cm;
+    margin-left: 0px;
+}
+
+.centre {
+    text-align: center;
+}
+
+.erreur {
+    color: red;
+}
+/*
+.banniere{
+    padding: 10px;
+    background-color:rgb(216, 216, 215);
+    display: flex;
+    justify-content: center;
+    background-image: url('logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+*/
+.banniere{
+    flex: 1;
+}
+
+.vert {
+    color: green;
+}
+
+a:hover{
+    color: black;
+    text-decoration: underline;
+}
+a:visited{color: darkred;}

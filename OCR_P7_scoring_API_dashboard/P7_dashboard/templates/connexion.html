@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prêt à dépenser</title>
+    <link rel="stylesheet" href="../static/style.css" type="text/css">
+  </head>
+
+  <body>
+
+      <!-- Contenu de la page -->
+      <!--<img src="../static/logo.png" alt="Logo Prêt à dépenser" title="Logo Prêt à dépenser">
+      -->
+    <header>
+    </header>
+
+    <main>
+      <div class="logo_accueil">
+        <img src="../static/logo.png" alt="Logo Prêt à dépenser" title="Logo Prêt à dépenser" width="500px" >
+      </div>
+      <section class="centre">
+        <h1 >Formulaire de connexion</h1>
+        {% if message %}
+          <p class="erreur">
+            {{message}} 
+          </p>
+        {% endif %}
+
+        <p >
+          Veuillez entrer votre nom :
+        </p>
+
+        <form action="/donnees/" method="post" class="centre">
+          <input type="text" name="username" placeholder="Nom">
+          <input type="submit">
+        </form>
+      </section>
+      <p>
+
+      </p>
+    </main>
+
+    
+    
+      <!-- <a href="../index.html"> Page d'accueil</a><br> -->
+
+  </body>
+
+</html>

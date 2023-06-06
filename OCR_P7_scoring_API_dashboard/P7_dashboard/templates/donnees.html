@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Données</title>
+        <link rel="stylesheet" href="../static/style.css">
+    </head>
+
+    <body>
+        <header>
+
+            <a href="/"><img src="../static/logo.png" alt="Logo Prêt à dépenser" title="Logo Prêt à dépenser" width="150" ></a>
+
+            <div class="banniere">
+                <h1>Données de {{n}} - id [{{i}}]</h1>
+            </div>
+        </header>
+
+        <main>
+
+
+            <form action="/score/" method="post">
+                <p>
+                    <input type="text" name="name" id="name" value={{n}} class="nom"> <br> encore quelques clics et vous saurez si le prêt demandé pourra vous être accordé!<br>
+                    Veuillez vérifier les données puis cliquer sur 'calculer mon score' pour afficher le résultat:
+                </p>
+                <h3>Crédit</h3>
+                <section>
+                    <!--<div class="element">
+                        <fieldset>
+                            <legend>Type de crédit</legend>
+                            <input type="radio" name="NAME_CONTRACT_TYPE" id="cash_loans" value="Cash loans"><label for="cash_loans">Crédit renouvelable</label>
+                            <input type="radio" name="NAME_CONTRACT_TYPE" id="Revolving_loans" value="Revolving loans"><label for="Revolving_loans">Crédit cash</label>
+                        </fieldset>
+                    </div>-->
+                    <div class="element"></div><label for="name_contract_type">Type de contrat</label>:<input type="text" required name="NAME_CONTRACT_TYPE" id="name_contract_type" value={{content.NAME_CONTRACT_TYPE}}></div>
+                    <div class="element"></div><label for="amt_credit">Montant du crédit</label>:<input type="number" min="0" name="AMT_CREDIT" id="amt_credit" value={{content.AMT_CREDIT}}></div>
+                    <div class="element"></div><label for="amt_annuity">Montant de l'annuité</label>:<input type="number" min="0" step="0.1" name="AMT_ANNUITY" id="amt_annuity" value={{content.AMT_ANNUITY}}></div>
+                    <div class="element"></div><label for="amt_goods_price">Montant des biens financés</label>:<input type="number" min="0" name="AMT_GOODS_PRICE" id="amt_goods_price" value={{content.AMT_GOODS_PRICE}}></div>
+                    <div class="element"></div><label for="name_type_suite">Accompagnateur</label>:<input type="text" name="NAME_TYPE_SUITE" id="name_type_suite" value={{content.NAME_TYPE_SUITE}}></div>   
+                </section>
+
+                <h3>Données professionnelles et scolaires</h3>
+                <section>
+                    <div class="element"></div><label for="amt_income_total">Revenus annuels</label>:<input type="number" min="0" name="AMT_INCOME_TOTAL" id="amt_income_total" value={{content.AMT_INCOME_TOTAL}}></div>
+                    <div class="element"></div><label for="name_income_type">Type de revenus</label>:<input type="text" name="NAME_INCOME_TYPE" id="name_income_type" value={{content.NAME_INCOME_TYPE}}></div>
+                    <div class="element"></div><label for="name_education_type">Niveau scolaire</label>:<input type="text" name="NAME_EDUCATION_TYPE" id="name_education_type" value={{content.NAME_EDUCATION_TYPE}}></div>
+                    <div class="element"></div><label for="days_employed">Ancienneté</label>:<input type="number" max="0" name="DAYS_EMPLOYED" id="days_employed" value={{content.DAYS_EMPLOYED}}></div>
+                    <div class="element"></div><label for="occupation_type">Profession</label>:<input type="text" name="OCCUPATION_TYPE" id="occupation_type" value={{content.OCCUPATION_TYPE}}></div>
+                    <div class="element"></div><label for="organization_type">Type de société où il/elle travaille</label>:<input type="text" name="ORGANIZATION_TYPE" id="organization_type" value={{content.ORGANIZATION_TYPE}}></div>
+                </section>
+
+                <h3>Données personnelles</h3>
+                <section>
+                    <!--<div class="element">
+                        <fieldset>
+                            <legend>Sexe</legend> 
+                            <input type="radio" name="CODE_GENDER" id="F" value="F"><label for="F">Féminin</label>
+                            <input type="radio" name="CODE_GENDER" id="M" value="M"><label for="M">Masculin</label>
+                        </fieldset>
+                    </div>  -->
+                    <div class="element"></div><label for="code_gender">Genre</label>:<input type="text" name="CODE_GENDER" id="code_gender" value={{content.CODE_GENDER}}></div>
+                    <div class="element"></div><label for="flag_own_car">Véhicule personnel</label>:<input type="text" name="FLAG_OWN_CAR" id="flag_own_car" value={{content.FLAG_OWN_CAR}}></div>
+                    <div class="element"></div><label for="flag_own_realty">Propriétaire</label>:<input type="text" name="FLAG_OWN_REALTY" id="flag_own_realty" value={{content.FLAG_OWN_REALTY}}></div>
+                    <div class="element"></div><label for="cnt_children">Nombre d'enfants</label>:<input type="number" min="0" max="25" name="CNT_CHILDREN" id="cnt_children" value={{content.CNT_CHILDREN}}></div>
+                    <div class="element"></div><label for="name_family_status">Statut familial</label>:<input type="text" name="NAME_FAMILY_STATUS" id="name_family_status" value={{content.NAME_FAMILY_STATUS}}></div>
+                    <div class="element"></div><label for="name_housing_type">Logement</label>:<input type="text" name="NAME_HOUSING_TYPE" id="name_housing_type" value={{content.NAME_HOUSING_TYPE}}></div>
+                    <div class="element"></div><label for="days_birth">Âge</label>:<input type="number" max="-6500" name="DAYS_BIRTH" id="days_birth" value={{content.DAYS_BIRTH}}></div>
+                    <div class="element"></div><label for="own_car_age">Âge du véhicule</label>:<input type="number" min="0" name="OWN_CAR_AGE" id="own_car_age" value={{content.OWN_CAR_AGE}}></div>
+                    <div class="element"></div><label for="flag_mobil">Numéro de mobile</label>:<input type="number" min="0" max="1" name="FLAG_MOBIL" id="flag_mobil" value={{content.FLAG_MOBIL}}></div>
+                    <div class="element"></div><label for="flag_emp_phone">Numéro de fixe</label>:<input type="number" min="0" max="1" name="FLAG_EMP_PHONE" id="flag_emp_phone" value={{content.FLAG_EMP_PHONE}}></div>
+                    <div class="element"></div><label for="flag_work_phone">Numéro du travail</label>:<input type="number" min="0" max="1" name="FLAG_WORK_PHONE" id="flag_work_phone" value={{content.FLAG_WORK_PHONE}}></div>
+                    <div class="element"></div><label for="flag_cont_mobile">Joignable</label>:<input type="number" min="0" max="1" name="FLAG_CONT_MOBILE" id="flag_cont_mobile" value={{content.FLAG_CONT_MOBILE}}></div>
+                    <div class="element"></div><label for="flag_phone">Numéro de fixe</label>:<input type="number" min="0" max="1" name="FLAG_PHONE" id="flag_phone" value={{content.FLAG_PHONE}}></div>
+                    <div class="element"></div><label for="flag_email">Email</label>:<input type="number" min="0" max="1" name="FLAG_EMAIL" id="flag_email" value={{content.FLAG_EMAIL}}></div>
+                    <div class="element"></div><label for="cnt_family_members">Membres de la famille</label>:<input type="number" min="0" max="30" name="CNT_FAM_MEMBERS" id="cnt_family_members" value={{content.CNT_FAM_MEMBERS}}></div>
+                </section>
+
+                <h3>Autres informations</h3>
+                <section>
+                    <div class="element"></div><label for="reg_region_not_live_region">Ne vit pas dans la région</label>:<input type="number" min="0" max="1" name="REG_REGION_NOT_LIVE_REGION" id="reg_region_not_live_region" value={{content.REG_REGION_NOT_LIVE_REGION}}></div>
+                    <div class="element"></div><label for="reg_region_not_work_region">Ne travaille pas dans la région</label>:<input type="number" min="0" max="1" name="REG_REGION_NOT_WORK_REGION" id="reg_region_not_work_region" value={{content.REG_REGION_NOT_WORK_REGION}}></div>
+                    <div class="element"></div><label for="live_region_not_work_region">Ne vit pas dans la région où il/elle travaille</label>:<input type="number" min="0" max="1" name="LIVE_REGION_NOT_WORK_REGION" id="live_region_not_work_region" value={{content.LIVE_REGION_NOT_WORK_REGION}}></div>
+                    <div class="element"></div><label for="reg_city_not_live_city">N'habite pas cette ville</label>:<input type="number" min="0" max="1" name="REG_CITY_NOT_LIVE_CITY" id="reg_city_not_live_city" value={{content.REG_CITY_NOT_LIVE_CITY}}></div>
+                    <div class="element"></div><label for="reg_city_not_work_city">Ne travaille pas dans cette ville</label>:<input type="number"  min="0" max="1" name="REG_CITY_NOT_WORK_CITY" id="reg_city_not_work_city" value={{content.REG_CITY_NOT_WORK_CITY}}></div>
+                    <div class="element"></div><label for="live_city_not_work_city">Ne vit pas dans la ville où il/elle travaille</label>:<input type="number"  min="0" max="1" name="LIVE_CITY_NOT_WORK_CITY" id="live_city_not_work_city" value={{content.LIVE_CITY_NOT_WORK_CITY}}></div>
+                    <div class="element"></div><label for="ext_source_1">Source 1</label>:<input type="number" step="0.00000000000000001" min="0" max="1" name="EXT_SOURCE_1" id="ext_source_1" value={{content.EXT_SOURCE_1}}></div>
+                    <div class="element"></div><label for="ext_source_2">Source 2</label>:<input type="number" step="0.00000000000000001" min="0" max="1" name="EXT_SOURCE_2" id="ext_source_2" value={{content.EXT_SOURCE_2}}></div>
+                    <div class="element"></div><label for="ext_source_3">Source 3</label>:<input type="number" step="0.00000000000000001" min="0" max="1" name="EXT_SOURCE_3" id="ext_source_3" value={{content.EXT_SOURCE_3}}></div>
+                </section>
+
+                
+                <h3>Documents à fournir</h3>
+                <section>
+                    <div class="element"></div><label for="flag_document_2">Document 2</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_2" id="flag_document_2" value={{content.FLAG_DOCUMENT_2}}></div>
+                    <div class="element"></div><label for="flag_document_3">Document 3</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_3" id="flag_document_3" value={{content.FLAG_DOCUMENT_3}}></div>
+                    <div class="element"></div><label for="flag_document_4">Document 4</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_4" id="flag_document_4" value={{content.FLAG_DOCUMENT_4}}></div>
+                    <div class="element"></div><label for="flag_document_5">Document 5</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_5" id="flag_document_5" value={{content.FLAG_DOCUMENT_5}}></div>
+                    <div class="element"></div><label for="flag_document_6">Document 6</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_6" id="flag_document_6" value={{content.FLAG_DOCUMENT_6}}></div>
+                    <div class="element"></div><label for="flag_document_7">Document 7</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_7" id="flag_document_7" value={{content.FLAG_DOCUMENT_7}}></div>
+                    <div class="element"></div><label for="flag_document_8">Document 8</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_8" id="flag_document_8" value={{content.FLAG_DOCUMENT_8}}></div>
+                    <div class="element"></div><label for="flag_document_9">Document 9</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_9" id="flag_document_9" value={{content.FLAG_DOCUMENT_9}}></div>
+                    <div class="element"></div><label for="flag_document_10">Document 10</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_10" id="flag_document_10" value={{content.FLAG_DOCUMENT_10}}></div>
+                    <div class="element"></div><label for="flag_document_11">Document 11</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_11" id="flag_document_11" value={{content.FLAG_DOCUMENT_11}}></div>
+                    <div class="element"></div><label for="flag_document_12">Document 12</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_12" id="flag_document_12" value={{content.FLAG_DOCUMENT_12}}></div>
+                    <div class="element"></div><label for="flag_document_13">Document 13</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_13" id="flag_document_13" value={{content.FLAG_DOCUMENT_13}}></div>
+                    <div class="element"></div><label for="flag_document_14">Document 14</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_14" id="flag_document_14" value={{content.FLAG_DOCUMENT_14}}></div>
+                    <div class="element"></div><label for="flag_document_15">Document 15</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_15" id="flag_document_15" value={{content.FLAG_DOCUMENT_15}}></div>
+                    <div class="element"></div><label for="flag_document_16">Document 16</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_16" id="flag_document_16" value={{content.FLAG_DOCUMENT_16}}></div>
+                    <div class="element"></div><label for="flag_document_17">Document 17</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_17" id="flag_document_17" value={{content.FLAG_DOCUMENT_17}}></div>
+                    <div class="element"></div><label for="flag_document_18">Document 18</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_18" id="flag_document_18" value={{content.FLAG_DOCUMENT_18}}></div>
+                    <div class="element"></div><label for="flag_document_19">Document 19</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_19" id="flag_document_19" value={{content.FLAG_DOCUMENT_19}}></div>
+                    <div class="element"></div><label for="flag_document_20">Document 20</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_20" id="flag_document_20" value={{content.FLAG_DOCUMENT_20}}></div>
+                    <div class="element"></div><label for="flag_document_21">Document 21</label>:<input type="number" min="0" max="1" name="FLAG_DOCUMENT_21" id="flag_document_21" value={{content.FLAG_DOCUMENT_21}}></div>
+                </section>
+                <input type="submit" value="Envoyer les modifications">
+            </form>
+            <form action="/score_no_modif/" method="post">
+                <input type="hidden" name="name" id="name" value={{n}}>
+                <input type="submit" value="Envoyer sans modification">
+            </form>
+            <!--<p>Votre score est de : {{s}}</p>
+            <p>La requête était la suivante : {{d}}</p>
+            -->
+        </main>
+
+        <footer>
+            <a href="/">Retour à l'accueil</a>
+        </footer>
+    </body>
+
+</html>

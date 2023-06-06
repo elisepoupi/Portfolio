@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Score</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+        <link rel="stylesheet" href="../static/style.css">
+    </head>
+
+    <body>
+        <header>
+
+            <a href="/"><img src="../static/logo.png" alt="Logo Prêt à dépenser" title="Logo Prêt à dépenser" width="150" ></a>
+
+            <div class="banniere">
+                <h1>Score - {{n}} - id [{{i}}]</h1>
+            </div>
+        </header>
+
+        <main>
+            <p>
+                <section class="centre">
+                    <div class="container">
+                        Pour cette modélisation, les prêts sont accordés pour un score inférieur à {{s}}. <br>
+                        Votre demande de prêt obtient le score de : {{resultat}} <br>
+                        <br>
+                        Le prêt est donc 
+                        {% if decision=="refusé..." %}<span class="erreur">{{decision}} </span>{% endif %}
+                        {% if decision=="accordé!" %}<span class="vert">{{decision}} </span>{% endif %}
+                    </div>
+                    <div class="container">
+                        {% if decision=="refusé..." %}<img src="../static/image_refus.png" alt="Prêt refusé!" title="Refus" width="75" >{% endif %}
+                        {% if decision=="accordé!" %}<img src="../static/image_valide.png" alt="Prêt accordé!" title="Accord" width="75" >{% endif %}
+                    </div>
+                </section>
+            </p>   
+            <div class="containerH">         
+                <img src={{graph_metric}} alt="Graphique probabilité" title="Probabilité et décision d'accord" class="chart">
+                <div id="chart1" class="chart"></div>
+                <div class="containerV">  
+                    <div id="chart2" class="chart"></div>
+                    <img src="../static/legend_boxplot.png" alt="Légende" title="Légende" class="chart">
+                </div>
+            </div>
+        </main>
+        <footer>
+            <a href="/">Retour à l'accueil</a>
+        </footer>
+    </body>
+
+    
+    <script type="text/javascript">
+        var graphs = {{chart1 | safe}};
+        //var myPlot = document.getElementById('chart1');
+        Plotly.plot('chart1',graphs,{responsive: true});    
+        graphs.on('plotly_click');
+        
+    </script>
+
+    <script type="text/javascript">
+        var graphs2 = {{chart2 | safe}};
+        Plotly.plot('chart2',graphs2,{});       
+    </script>
+
+</html>
